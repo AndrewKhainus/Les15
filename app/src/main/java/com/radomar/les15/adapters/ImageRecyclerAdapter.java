@@ -25,7 +25,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 /**
- * Created by Radomar on 26.08.2015.
+ * Created by Radomar on 26.08.2015
  */
 public class ImageRecyclerAdapter extends RecyclerView.Adapter<ImageRecyclerAdapter.CustomViewHolder> {
 
@@ -113,12 +113,10 @@ public class ImageRecyclerAdapter extends RecyclerView.Adapter<ImageRecyclerAdap
          save image to sdCard (ExternalCacheDir)
          */
         private void saveImage(Bitmap bmImg, String fileName) {
-            if (getFreeSpaceMb() < 30) {
-                return;
-            }
+
             File ImageFile;
             try{
-                ImageFile = new File(mActivity.getExternalCacheDir(), fileName);
+                ImageFile = new File(mActivity.getCacheDir(), fileName);
 
                 FileOutputStream out = new FileOutputStream(ImageFile);
                 bmImg.compress(Bitmap.CompressFormat.JPEG, 100, out);
@@ -126,16 +124,8 @@ public class ImageRecyclerAdapter extends RecyclerView.Adapter<ImageRecyclerAdap
                 out.close();
 
             } catch (IOException e) {
+                e.printStackTrace();
             }
-        }
-
-        /**
-         * this method return free space on SDcard in MByte
-         */
-        private long getFreeSpaceMb() {
-            StatFs stat = new StatFs(Environment.getExternalStorageDirectory().getPath());
-            long bytesAvailable = (long)stat.getBlockSize() *(long)stat.getBlockCount();
-            return bytesAvailable / 1048576;
         }
 
     }
