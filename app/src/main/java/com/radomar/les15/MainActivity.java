@@ -92,12 +92,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void clearCache() {
-        if(getExternalCacheDir().exists()){
-            File[] files = getExternalCacheDir().listFiles();
+        if(getCacheDir().exists()) {
+            File[] files = getCacheDir().listFiles();
 
             if(files != null) {
-                for(int i=0; i<files.length; i++) {
-                    files[i].delete();
+                for (File file: files) {
+                    file.delete();
                 }
             }
         }
