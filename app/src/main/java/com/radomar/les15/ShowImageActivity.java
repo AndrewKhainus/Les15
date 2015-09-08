@@ -33,7 +33,7 @@ public class ShowImageActivity extends Activity {
         mImage = (ImageView)findViewById(R.id.ivImage_ASI);
 
         Intent intent = getIntent();
-        File imageFile = new File(getExternalCacheDir() , intent.getStringExtra(ImageRecyclerAdapter.KEY_FILENAME));
+        File imageFile = new File(getCacheDir() , intent.getStringExtra(ImageRecyclerAdapter.KEY_FILENAME));
         if (imageFile.exists()) {
             mImageBitmap = BitmapFactory.decodeFile(imageFile.getAbsolutePath());
             mImage.setImageBitmap(mImageBitmap);

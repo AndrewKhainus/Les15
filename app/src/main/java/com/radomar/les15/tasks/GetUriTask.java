@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Radomar on 27.08.2015.
+ * Created by Radomar on 27.08.2015
  */
 public class GetUriTask extends AsyncTask<String, Void, ArrayList<String>> {
 
@@ -21,7 +21,7 @@ public class GetUriTask extends AsyncTask<String, Void, ArrayList<String>> {
     protected ArrayList<String> doInBackground(String... params) {
         ArrayList<String> list = new ArrayList<>();
         try {
-            for (int i = 0; i < 30; i++ ) {
+            for (int i = 0; i < 20; i++ ) {
                 String randUrl = getRandUrl_UrlConn(params[0]);
                 list.add(randUrl);
             }

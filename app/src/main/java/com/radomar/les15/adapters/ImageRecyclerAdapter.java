@@ -83,7 +83,7 @@ public class ImageRecyclerAdapter extends RecyclerView.Adapter<ImageRecyclerAdap
                 e.printStackTrace();
             }
             final String fileName = sUrl.substring(sUrl.lastIndexOf('/') + 1);
-            final File imageFile = new File(mActivity.getExternalCacheDir(),"thumb " + fileName);
+            final File imageFile = new File(mActivity.getCacheDir(),"thumb " + fileName);
 
             if (imageFile.exists()) {
                 imageView.setImageBitmap(BitmapFactory.decodeFile(imageFile.getAbsolutePath()));
@@ -110,7 +110,7 @@ public class ImageRecyclerAdapter extends RecyclerView.Adapter<ImageRecyclerAdap
         }
 
         /**
-         save image to sdCard (ExternalCacheDir)
+         save image to cacheDir
          */
         private void saveImage(Bitmap bmImg, String fileName) {
 

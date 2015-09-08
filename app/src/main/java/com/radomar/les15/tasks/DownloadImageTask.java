@@ -15,14 +15,13 @@ import java.net.URL;
 import java.util.List;
 
 /**
- * Created by Radomar on 27.08.2015.
+ * Created by Radomar on 27.08.2015
  */
 public class DownloadImageTask  extends AsyncTask<URL, Void, Bitmap> {
 
     @Override
     protected Bitmap doInBackground(URL... params) {
-        Bitmap bitmap = downloadImage(params[0]);
-        return bitmap;
+        return downloadImage(params[0]);
     }
 
     private Bitmap downloadImage(URL url) {
